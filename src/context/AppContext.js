@@ -59,8 +59,13 @@ export const AppReducer = (state, action) => {
             };
         case 'SET_BUDGET':
             action.type = "DONE";
-            state.budget = action.payload;
-
+            if(state.budget >= state.expenses) {
+                state.budget = action.payload;
+                console.log("AppContext SET_BUDGET action triggert, budget: " + state.budget);
+            } else {
+                alert("You cannot reduce the budget value lower than the spending");
+                console.log("state budget should be the same as before: " + state.budget);
+            }
             return {
                 ...state,
             };
@@ -78,7 +83,7 @@ export const AppReducer = (state, action) => {
 
 // 1. Sets the initial state when the app loads
 const initialState = {
-    budget: 2000,
+    budget: 20000,
     expenses: [
         { id: "Marketing", name: 'Marketing', cost: 50 },
         { id: "Finance", name: 'Finance', cost: 300 },
