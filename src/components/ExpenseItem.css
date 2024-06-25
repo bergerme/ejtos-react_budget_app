@@ -1,0 +1,13 @@
+#increase_button {
+    border-radius: 50%;
+    background-color: green;
+    color: white;
+    font-weight: 900;
+}
+
+#decrease_button {
+    border-radius: 50%;
+    background-color: red;
+    color: white;
+    font-weight: 900;
+}
