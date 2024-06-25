@@ -59,7 +59,10 @@ export const AppReducer = (state, action) => {
             };
         case 'SET_BUDGET':
             action.type = "DONE";
-            if(state.budget >= state.expenses) {
+            let total_expenses = 0;
+            state.expenses.map((expense_item) => total_expenses += expense_item.cost);
+            console.log("total_expenses: " + total_expenses);
+            if(action.payload >= total_expenses) {
                 state.budget = action.payload;
                 console.log("AppContext SET_BUDGET action triggert, budget: " + state.budget);
             } else {

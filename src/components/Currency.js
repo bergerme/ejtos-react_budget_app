@@ -1,6 +1,8 @@
 import React, { useContext, useState } from 'react';
 import { AppContext } from '../context/AppContext';
 
+import './Currency.css';
+
 const Currency = () => {
     const { dispatch, currency } = useContext(AppContext);
     const [newCurrency, setNewCurrency] = useState(currency);
@@ -15,14 +17,14 @@ const Currency = () => {
 
     return (
         <div className='alert alert-warning'>
-        <label>Currency:  
-            <select value={newCurrency} onChange={handleCurrencyChange}>
-                <option value="$">$ Dollar</option>
-                <option value="£">£ Pound</option>
-                <option value="€">€ Euro</option>
-                <option value="₹">₹ Ruppee</option>
-            </select>
-        </label>
+            <label>Currency:  
+                <select value={newCurrency} onChange={handleCurrencyChange} className='hoi'>
+                    <option value="$">$ Dollar</option>
+                    <option value="£">£ Pound</option>
+                    <option value="€">€ Euro</option>
+                    <option value="₹">₹ Ruppee</option>
+                </select>
+            </label>
         </div>
     );
 };
